@@ -1,0 +1,275 @@
+<html>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700,900" rel="stylesheet">
+    <script src="https://use.fontawesome.com/6ce1697ef4.js"></script>
+    
+    <head>
+        <title>LibreHealth Quickstart</title>
+        <style>
+            body {
+                overflow-x: hidden;
+            }
+            
+            .header {
+                width: 100vw;
+                padding: 20px;
+                background-color: rgba(244, 144, 48, 1);
+                box-shadow: 0 3px 1px rgba(0,0,0,0.2);
+            }
+            
+            .header .container {
+                width: 100vw; 
+                color: #FFF;
+            }
+            
+            .header h1 {
+                font-size: 50px;
+            }
+            
+            .header p {
+                font-size: 20px;
+            }
+            
+            .header .contribute {
+                background-color: #FFF;
+                color: rgba(244, 144, 48, 1);
+            }
+            
+            .main {
+                padding: 20px;
+                width: 100vw;
+                background-color: rgba(200,200,200,0.1);
+            }
+            
+            .main h1 {
+                font-size: 30px;
+                color: #666;
+            }
+            
+            .main .cards {
+                border-radius: 2px;
+                box-shadow: 0 3px 2px rgba(0,0,0,0.2);
+                background-color: #FFF;
+                padding: 10px 30px 10px 30px;
+                margin-bottom: 20px;
+                
+            }
+            
+            .main .cards .p {
+                text-align: justify;
+            }
+            
+            .main .container {
+                width: 100vw;
+            }
+            
+            .main #unreleased {
+                color: #CC0000;
+            }
+            
+            .main .cards .install_btn {
+                color: rgba(244, 144, 48, 1);
+                margin: 5px;
+            }
+            .main .cards .install_btn i {
+                vertical-align: middle;
+            }
+            
+            .chip i {
+                vertical-align: middle;
+                font-size: 15px;
+                margin-right: 3px;
+            }
+            
+            .footer {
+                width: 100vw;
+                background-color: #AAA;
+                padding: 20px;
+            }
+            
+            .footer a {
+                color: #FFF;
+            }
+            
+            .footer img {
+                filter: brightness(1000%);
+                height: 30px;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="header valign-wrapper">
+            <div class="container row">
+                <h1>Getting started with LibreHealth</h1>
+                <p>Unsure where to begin?</p>
+                <a class="btn waves-effect contribute">LET US HELP YOU DECIDE</a>
+            </div>
+        </div>
+        
+        <div class="main">
+            <h1>Our Projects</h1>
+            <p>We have three projects under development: EHR, Toolkit, and Radiology</p>
+            <br>
+            
+            <div class="row container">
+                
+                <div class="col s1"></div>
+                
+                <div class="col s3">
+                    <div class="cards">
+                        <h1>EHR</h1>
+                        <p>EHR is a health toolkit meant to be efficient and user friendly. At its core, EHR is comprised of several web components which bind to form a synchronised product. Knowledge of JavaScript, along with some understanding of UI, HTML and CSS is required.</p>
+                        <br><br>
+                        <div class="chip">
+                            JS
+                        </div>
+                    
+                        <div class="chip">
+                            User Interface
+                        </div>
+                    
+                        <div class="chip">
+                            <i class="material-icons">polymer</i>Polymer
+                        </div>
+                        <div class="chip">
+                            HTML
+                        </div>
+                        <div class="chip">
+                            CSS
+                        </div>
+                        <div class="chip">
+                            SQL
+                        </div>
+                        <div class="chip">
+                            Web
+                        </div>
+                    </div> 
+                    
+                    <div class="cards">
+                        <h1>Installation</h1>
+                        <a class="btn-flat install_btn waves-effect" href="https://github.com/LibreHealthIO/LibreEHR/blob/master/INSTALL.md"><i class="fa fa-windows" aria-hidden="true"></i> &nbsp;WINDOWS</a>
+                        <a class="btn-flat install_btn waves-effect" href="https://gitlab.com/librehealth/gci/issues/86"><i class="fa fa-linux" aria-hidden="true"></i> &nbsp;LINUX</a>
+                        <a class="btn-flat install_btn waves-effect" href="https://gitlab.com/librehealth/gci/issues/91"><i class="fa fa-apple" aria-hidden="true"></i> &nbsp;MAC OSX</a>
+                        <br>
+                        <br>
+                    </div>
+                    
+                </div>
+                
+                <div class="col s0.5"></div>
+                
+                <div class="col s3">
+                    <div class="cards">
+                        <h1>Toolkit</h1>
+                    <p>The Toolkit provides the core coding framework for EHR and Radiology. It comprises of a kit of healthcare services which can be implemented in hospitals and other health institutions. Most of the code is in the form of web components written in Polymer. To contribute to this project, one must have a thorough understanding of components, databases, and some knowledge of Java.</p>
+                    <br><br>
+                    <div class="chip">
+                        User Interface
+                    </div>
+                    <div class="chip">
+                        API
+                    </div>
+                    <div class="chip">
+                        Java
+                    </div>
+                     <div class="chip">
+                        <i class="material-icons">polymer</i>Polymer
+                    </div>
+                    <div class="chip">
+                        JS
+                    </div>
+                    </div>
+                    
+                    <div class="cards">
+                        <h1>Installation</h1>
+                        
+                        <a class="btn-flat waves-effect install_btn" href="https://librehealth.gitbooks.io/lh-toolkit-dev-guide/librehealth_toolkit_installation.html">SETUP</a>
+                        <a class="btn-flat waves-effect install_btn" href="https://gitlab.com/librehealth/lh-toolkit-docker">SETUP USING DOCKER</a>
+                    </div>
+                </div>
+                
+                <div class="col s0.5"></div>
+                
+                <div class="col s3">
+                    <div class="cards">
+                        <h1>Radiology</h1>
+                    <p id="unreleased">(Unreleased)</p>
+                    <p>Radiology is a product designed to help radiologists and imaging experts handle data and patient records more efficiently.It is still under development and is expected to be released soon. Radiology too is built using components, and uses Java too. Currently, Radiology UI and wireframing related contributions are preferred so as to finalise the project structure. Knowledge of the job descriptions of radiologists and substitient occupations is appreciated.</p>
+                    <br><br>
+                    <div class="chip">
+                        Radiology
+                    </div>
+                    <div class="chip">
+                        mySQL
+                    </div>
+                    <div class="chip">
+                        Java
+                    </div>
+                    <div class="chip">
+                        User Interface
+                    </div>
+                     <div class="chip">
+                        <i class="material-icons">polymer</i>Polymer
+                    </div>
+                    <div class="chip">
+                       MariaDB
+                    </div>
+                    </div>
+                    
+                    <div class="cards">
+                        <h1>Installation</h1>
+                        
+                        <a class="btn-flat waves-effect install_btn" href="https://ivange94blog.wordpress.com/2017/09/26/setting-up-development-environment-for-LibreHealth-radiology/"><i class="material-icons">book</i> &nbsp;VIEW GUIDE</a>
+                    </div>
+                </div>
+                
+                <div class="col s1"></div>
+            </div>
+            <div class="container">
+                <h1>FAQ</h1>
+                <ul class="collapsible" data-collapsible="accordion">
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">polymer</i>What is Polymer</div>
+                        <div class="collapsible-body"><span>Polymer is a web framework used to create web components. We at LibreHealth prefer Polymer for all our projects as it helps maintain uniformity within the code. Polymer was originally created by a group of front end developers at Google, and has now evolved into a full fledged framework. It is very similar to Angular or Node, but more feature rich and readable. <br>Check out these videos to get started with Polymer<br><a href="https://www.youtube.com/watch?v=eORqFaf_QzM">Polymer: Interacting with Google Services using nothing but HTML</a><br><a href="https://www.youtube.com/watch?v=MaWcS-10NIw">Polymer Tutorials #1 - An Introduction to Polymer</a>  </span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">group_add</i>How can I contribute</div>
+                        <div class="collapsible-body"><span>LibreHealth values every single contribution you make. To contribute, fork the repository concerned, and make your changes locally.<br>Create a new branch on your fork and then submit a pull request to the master branch of the main repository. Also include a description of your changes and work, so that others know what you have contributed.</span></div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">code</i>How do I help without having to code</div>
+                        <div class="collapsible-body"><span>We welcome contributions from every corner of expertise, and not just code. For instance, you can help redesign the user interface of LibreHealth EHR or design artwork for the Toolkit. Alternatively, you can also write blog posts promoting LibreHealth and take up outreach related tasks.</span></div>
+                    </li>
+                </ul>
+            </div>
+            <br><br>
+            <div class="container">
+                <h1>Start today!</h1>
+                <p>Here are a few tasks to get you started: </p> <a href="https://gitlab.com/librehealth/gci/issues" class="btn-flat">LH ISSUES</a>
+            </div>
+        </div>
+        
+        <div class="footer">
+            <div class="row">
+                <div class="col s2">
+                    <a class="btn-flat" href="https://twitter.com/librehealthio?lang=en"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                </div>
+                <div class="col s2">
+                    <a class="btn-flat" href="https://en.wikipedia.org/wiki/Draft:LibreHealth"><i class="fa fa-wikipedia-w" aria-hidden="true"></i></a>
+                </div>
+                <div class="col s2">
+                     <a class="btn-flat" href="https://chat.librehealth.io/channel/general"><i class="material-icons">chat</i></a>
+                </div>
+                <div class="col s2">
+                    <a class="btn-flat" href="https://forums.librehealth.io/"><i class="material-icons">forums</i></a>
+                </div>
+            </div>
+            <br><br>
+             <img src="logo.png">
+        </div>
+    </body>
+</html>
