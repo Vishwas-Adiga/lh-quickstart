@@ -179,7 +179,7 @@
                         <br><br>
                         <h3>Contributions</h3>
                         <br>
-                        <h2 id="ehr_contributions">350</h2>
+                        <h2 id="ehr_contributions">0</h2>
                         <br><br>
                         <h3 id="ehr_latest_committer">Latest commit by </h3>
                         <br>
@@ -226,7 +226,13 @@
                         <br><br>
                         <h3>Contributions</h3>
                         <br>
-                        <h2 id="toolkit_contributions">350</h2>
+                        <h2 id="toolkit_contributions">0</h2>
+                        <br><br>
+                        <h3 id="toolkit_latest_committer">Latest commit by </h3>
+                        <br>
+                       <a id="toolkit_latest_commit" class="btn-flat waves-effect">VIEW COMMIT</a>
+                        <br><br>
+                        <h3>Languages</h3>
                         <div id="toolkit_languages" class="graph"></div>
                     </div>
                 </div>
@@ -322,6 +328,17 @@
                     i++;
                 }
             
+            var toolkit_languageData;
+            var toolkit_languageList = [];
+            var j=0, toolkit_val;
+            
+            toolkit_languageData = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/lh-toolkit/languages"));
+            for(var language in toolkit_languageData) {
+                eval("toolkit_val = toolkit_languageData['" + language + "'];");
+                    toolkit_languageList[j] = new Array(language, toolkit_val);
+                    j++;
+                }
+            
             google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(drawChart);
 
@@ -337,6 +354,18 @@
                 // Instantiate and draw our chart, passing in some options.
                 var chart = new google.visualization.PieChart(document.getElementById('ehr_languages'));
                 chart.draw(data, options);
+                
+                var toolkit_data = new google.visualization.DataTable();
+                toolkit_data.addColumn('string', 'Languages');
+                toolkit_data.addColumn('number', 'Percentage');
+                toolkit_data.addRows(toolkit_languageList);
+
+                // Set chart options
+                var options = {legend: {position: 'none'}};
+
+                // Instantiate and draw our chart, passing in some options.
+                var chart = new google.visualization.PieChart(document.getElementById('toolkit_languages'));
+                chart.draw(toolkit_data, options);
             }
             
             var ehr_cont = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/libreehr/contributors"));
@@ -349,6 +378,18 @@
             var all_cont_sha = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/libreehr/commits"));
             document.getElementById("ehr_latest_commit").href = all_cont_sha[0].html_url;
             document.getElementById("ehr_latest_committer").innerHTML = "Latest commit by " + all_cont_sha[0].commit.author.name;
+            
+            
+            var toolkit_cont = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/lh-toolkit/contributors"));
+            var toolkit_total = 0;
+            for(var i=0;i<toolkit_cont.length;i++) {
+                toolkit_total += toolkit_cont[i].contributions;
+            }
+            document.getElementById("toolkit_contributions").innerHTML = toolkit_total;
+            
+            var t_all_cont_sha = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/lh-toolkit/commits"));
+            document.getElementById("toolkit_latest_commit").href = t_all_cont_sha[0].html_url;
+            document.getElementById("toolkit_latest_committer").innerHTML = "Latest commit by " + t_all_cont_sha[0].commit.author.name;
             
             function httpGet(theUrl) {
                 var xmlHttp = new XMLHttpRequest();
