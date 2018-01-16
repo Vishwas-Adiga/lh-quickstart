@@ -6,6 +6,17 @@
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700,900" rel="stylesheet">
     <script src="https://use.fontawesome.com/6ce1697ef4.js"></script>
     
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-65235902-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-65235902-3');
+    </script>
+
+    
     <head>
         <title>LibreHealth Quickstart</title>
         <style>
@@ -349,7 +360,7 @@
                 data.addRows(languageList);
 
                 // Set chart options
-                var options = {legend: {position: 'none'}};
+                var options = {legend: {position: 'none'}, 'chartArea': {'width': '70%', 'height': '80%'}};
 
                 // Instantiate and draw our chart, passing in some options.
                 var chart = new google.visualization.PieChart(document.getElementById('ehr_languages'));
@@ -361,7 +372,7 @@
                 toolkit_data.addRows(toolkit_languageList);
 
                 // Set chart options
-                var options = {legend: {position: 'none'}};
+                var options = {legend: {position: 'none'}, 'chartArea': {'width': '70%', 'height': '80%'}};
 
                 // Instantiate and draw our chart, passing in some options.
                 var chart = new google.visualization.PieChart(document.getElementById('toolkit_languages'));
