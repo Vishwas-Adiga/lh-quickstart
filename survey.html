@@ -1,0 +1,529 @@
+<html>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,700,900" rel="stylesheet">
+    <script src="https://use.fontawesome.com/6ce1697ef4.js"></script>
+    
+    <head>
+        <title>LibreHealth - Getting started</title>
+        <style>
+            body {
+                overflow: hidden;
+            }
+            
+            .main {
+                width: 80vw;
+                height: 90vh;
+                border-radius: 3px;
+                box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+                padding: 20px;
+                top: 5vh;
+                left: 10vw;
+                background-color: #FFF;
+                position: absolute;
+                z-index: 2;
+            }
+            
+            #top {
+                width: 100vw;
+                height: 40vh;
+                background-color: #F59031;
+            }
+            
+            #bottom {
+                width: 100vw;
+                height: 60vh;
+                background-color: #EEE;
+            }
+            
+            #step1 {
+                width: 90%;
+                margin-left: 5%;
+                text-align: center;
+                padding-top: 25vh;
+                display: block;
+            }
+            
+            #step1 p {
+                color: #666;
+                font-size: 20px;
+            }
+            
+            #step1 a {
+                background-color: #F59031;
+            }
+            
+            #step1 img {
+                height: 120px;
+            }
+            
+            #code1, #code2, #code3, #code4, #code5, #code6, #code7, #code8, #code9, #code10 {
+                width: 90%;
+                margin-left: 5%;
+                padding: 60px;
+                padding-top: 120px;
+                display: none;
+            }
+            
+            #code1 label::before, #code3 label::before, #code4 label::before, #code5 label::before, #code6 label::before, #code7 label::before,  #code9 label::before, #code10 label::before {
+                border-color: #F59031;
+            }
+            
+            #code1 label::after, #code3 label::after, #code4 label::after, #code5 label::after, #code6 label::after, #code7 label::after, #code9 label::after, #code10 label::after {
+                background-color: #F59031;
+                border: none;
+            }
+            
+            .title {
+                color: #F59031;
+                font-size: 30px;
+            }
+            
+            .next, .next:focus, .next:hover {
+                background-color: #F59031;
+            }
+            
+            #code2, #code3, #code4, #code5, #code6, #code7 , #code8 , #code9 , #code10 {
+                padding: 40px;
+            }
+            
+            #code2 .filled-in[type="checkbox"].filled-in:checked + label:after, #code8 .filled-in[type="checkbox"].filled-in:checked + label:after{
+                border: 2px solid #F59031;
+                background-color: #F59031;
+            }
+            
+            #results {
+                display: none;
+                padding: 20px;
+            }
+            
+            
+        </style>
+    </head>
+    
+    <body>
+        <div id="top"></div>
+        <div id="bottom"></div>
+        <div class="main">
+            <div id="step1">
+                <img src="step1.png">
+                <p>Unsure where to start? Answer a few questions and let us show you the way!</p>
+                <a class="btn waves-effect" onclick="start()">TAKE THE SURVEY</a>
+            </div>
+            <div id="code1">
+                <h1 class="title">Do you have any past experience with coding?</h1>
+                <br><br>
+                <form action="#">
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="past_exp_yes" checked/>
+                        <label for="past_exp_yes">Yes</label>
+                    </p>
+                    
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="past_exp_no" />
+                        <label for="past_exp_no">No</label>
+                     </p>
+                </form>
+                <br><br>
+                <a class="btn waves-effect next" onclick="moveTo2()">NEXT</a>
+            </div>
+            
+            <div id="code2">
+                <h1 class="title">Which of these are you comfortable programming with?</h1>
+                <br><br>
+                <form action="#">
+                    <p>
+                        <input type="checkbox" id="java" class="filled-in" />
+                        <label for="java">Java</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="js" class="filled-in" />
+                        <label for="js">JavaScript</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="php" class="filled-in" />
+                        <label for="php">PHP</label>
+                    </p>
+                    <p>
+                        <input type="checkbox" id="sql" class="filled-in" />
+                        <label for="sql">mySQL</label>
+                    </p> 
+                    <p>
+                        <input type="checkbox" id="htcs" class="filled-in" />
+                        <label for="htcs">HTML/CSS</label>
+                    </p>
+                </form>
+                <br><br>
+                <a class="btn waves-effect next" onclick="moveTo3()">NEXT</a>
+            </div>
+            <div id="code3">
+                <h1 class="title">Have you previously worked with any organisation and used vast codebases?</h1>
+                <br><br>
+                <form action="#">
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="org_yes" checked/>
+                        <label for="org_yes">Yes</label>
+                    </p>
+                    
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="org_no" />
+                        <label for="org_no">No</label>
+                     </p>
+                </form>
+                <br><br>
+                <a class="btn waves-effect next" onclick="moveTo4()">NEXT</a>
+            </div>
+            
+            <div id="code4">
+                <h1 class="title">Are you a graphic designer/ UI developer?</h1>
+                <br><br>
+                <form action="#">
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="ui_yes" checked/>
+                        <label for="ui_yes">Yes</label>
+                    </p>
+                    
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="ui_no" />
+                        <label for="ui_no">No</label>
+                     </p>
+                </form>
+                <br><br>
+                <a class="btn waves-effect next" onclick="moveTo5()">NEXT</a>
+            </div>
+
+            <div id="code5">
+                <h1 class="title">On a scale of 1 to 5, where would you rate your writing skills?</h1>
+                <br><br>
+                <form action="#">
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="docs_1" checked/>
+                        <label for="docs_1">1</label>
+                    </p>
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="docs_2" checked/>
+                        <label for="docs_2">2</label>
+                    </p>
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="docs_3" checked/>
+                        <label for="docs_3">3</label>
+                    </p>
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="docs_4" checked/>
+                        <label for="docs_4">4</label>
+                    </p>
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="docs_5" checked/>
+                        <label for="docs_5">5</label>
+                    </p>
+                    
+                </form>
+                <br><br>
+                <a class="btn waves-effect next" onclick="moveTo6()">NEXT</a>
+            </div>
+            
+            <div id="code6">
+                <h1 class="title">Do you usually insist on using efficient and quality code in projects?</h1>
+                <br><br>
+                <form action="#">
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="qual_yes" checked/>
+                        <label for="qual_yes">Always</label>
+                    </p>
+        
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="qual_sometimes" />
+                        <label for="qual_sometimes">Sometimes. When the code is to be made public</label>
+                    </p>
+                    
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="qual_no" />
+                        <label for="qual_no">Anything that works will do</label>
+                    </p>
+                    
+                </form>
+                <br><br>
+                <a class="btn waves-effect next" onclick="moveTo7()">NEXT</a>
+            </div>
+            
+            <div id="code7">
+                <h1 class="title">Would you mind spending time increasing the efficiency of others' code?</h1>
+                <br><br>
+                <form action="#">
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="qual_others_yes" checked/>
+                        <label for="qual_others_yes">I'd be glad to optimise the codebase</label>
+                    </p>
+        
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="qual_others_no" />
+                        <label for="qual_others_no">I'd rather write new features</label>
+                    </p>
+                    
+                </form>
+                <br><br>
+                <a class="btn waves-effect next" onclick="moveTo8()">NEXT</a>
+            </div>
+            
+            <div id="code8">
+                <h1 class="title">Select the options most applicable to you</h1>
+                <br><br>
+                <form action="#">
+                    <p>
+                        <input type="checkbox" id="social" class="filled-in" />
+                        <label for="social">I'm good at socialising and reaching out to the public</label>
+                    </p>
+                    
+                    <p>
+                        <input type="checkbox" id="advert" class="filled-in" />
+                        <label for="advert">I can make crisp and catchy slogans and phrases</label>
+                    </p>
+                    
+                    <p>
+                        <input type="checkbox" id="research" class="filled-in" />
+                        <label for="research">I am able to efficiently do research for a product/idea</label>
+                    </p>
+                    
+                    <p>
+                        <input type="checkbox" id="brain" class="filled-in" />
+                        <label for="brain">I'm good at brainstorming and coming up with ideas</label>
+                    </p>
+                    
+                </form>
+                <br><br>
+                <a class="btn waves-effect next" onclick="moveTo9()">NEXT</a>
+            </div>
+            
+            <div id="code9">
+                <h1 class="title">Are you professionally connected to the healthcare system?</h1>
+                <br><br>
+                <form action="#">
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="job_yes" checked/>
+                        <label for="job_yes">Yes</label>
+                    </p>
+        
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="job_no" />
+                        <label for="job_no">No</label>
+                    </p>
+                    
+                </form>
+                <br><br>
+                <a class="btn waves-effect next" onclick="moveTo10()">NEXT</a>
+            </div>
+            
+            <div id="code10">
+                <h1 class="title">Do you think that every human should be entitled to a healthy life?</h1>
+                <br><br>
+                <form action="#">
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="motto_yes" checked/>
+                        <label for="motto_yes">Yes</label>
+                    </p>
+        
+                    <p>
+                        <input class="with-gap" name="group3" type="radio" id="motto_no" />
+                        <label for="motto_no">No</label>
+                    </p>
+                    
+                </form>
+                <br><br>
+                <a class="btn waves-effect next" onclick="end()">NEXT</a>
+            </div>
+            
+            <div id="results">
+                <h1 class="title" id="results_title">We think you should take up</h1>                
+                <br>
+                <p>Here is what you told us about yourself</p>
+                <div id="chart_div"></div>
+                <br><br><br>
+                <a class="btn-flat" href="index.html"><i class="material-icons">home</i> </a>
+            </div>
+            
+        </div>
+        
+            
+        
+        <!--Load the AJAX API-->
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+            var coding=0, ui=0, qual=0, outreach=0, docs=0, overall=0;
+            function start() {
+                document.getElementById("step1").style.display = "none";
+                document.getElementById("code1").style.display = "block";
+            }
+            function moveTo2() {
+                if(document.getElementById("past_exp_yes").checked == true) {
+                    coding+=2;
+                }
+                document.getElementById("code1").style.display = "none";
+                document.getElementById("code2").style.display = "block";
+            }
+            
+            function moveTo3() {
+                if(document.getElementById("java").checked){
+                    coding+=2;
+                }
+                if(document.getElementById("js").checked){
+                    coding++;
+                }
+                if(document.getElementById("php").checked){
+                    coding++;
+                }
+                if(document.getElementById("sql").checked){
+                    coding+=2;
+                }
+                if(document.getElementById("htcs").checked){
+                    coding++;
+                }
+                document.getElementById("code2").style.display = "none";
+                document.getElementById("code3").style.display = "block";
+            }
+            
+            function moveTo4() {
+                if(document.getElementById("org_yes").checked){
+                    coding+=2;
+                    outreach+=2;
+                    docs++;
+                }
+                document.getElementById("code3").style.display = "none";
+                document.getElementById("code4").style.display = "block";
+            }
+            
+            function moveTo5() {
+                if(document.getElementById("ui_yes").checked) {
+                    ui+=3;
+                }
+                document.getElementById("code4").style.display = "none";
+                document.getElementById("code5").style.display = "block";
+            }
+            
+            function moveTo6() {
+                if(document.getElementById("docs_1").checked) {
+                    outreach++;
+                } else if(document.getElementById("docs_2").checked) {
+                    outreach+=2;
+                } else if(document.getElementById("docs_3").checked) {
+                    outreach+=2;
+                } else if(document.getElementById("docs_4").checked) {
+                    outreach+=3;
+                } else if(document.getElementById("docs_5").checked) {
+                    outreach+=2;
+                }
+                document.getElementById("code5").style.display = "none";
+                document.getElementById("code6").style.display = "block";
+            }
+            
+            function moveTo7() {
+                if(document.getElementById("qual_yes").checked) {
+                    qual+=2;
+                    docs++;
+                } else if(document.getElementById("qual_sometimes").checked) {
+                    qual++;
+                }
+                document.getElementById("code6").style.display = "none";
+                document.getElementById("code7").style.display = "block";
+            }
+            
+            function moveTo8() {
+                if(document.getElementById("qual_others_yes").checked) {
+                    qual++;
+                    docs++;
+                    overall+=0.5;
+                }
+                document.getElementById("code7").style.display = "none";
+                document.getElementById("code8").style.display = "block";
+            }
+            
+            function moveTo9() {
+                if(document.getElementById("social").checked) {
+                    outreach+=2;
+                    overall++;
+                }
+                
+                if(document.getElementById("advert").checked) {
+                    qual+=2;
+                }
+                
+                if(document.getElementById("research").checked) {
+                    outreach++;
+                    docs+=2;
+                }
+                
+                if(document.getElementById("brain").checked) {
+                    outreach++;
+                }
+                document.getElementById("code8").style.display = "none";
+                document.getElementById("code9").style.display = "block";
+            }
+            
+            function moveTo10() {
+                if(document.getElementById("job_yes").checked) {
+                    docs+=2;
+                    outreach++;
+                }
+                document.getElementById("code9").style.display = "none";
+                document.getElementById("code10").style.display = "block";
+            }
+            
+            function end() {
+                if(document.getElementById("motto_yes").checked) {
+                    overall+= 2;
+                } 
+                document.getElementById("code10").style.display = "none";
+                document.getElementById("results").style.display = "block";
+          
+                drawChart();
+                var listOfScores = {
+                    coding: coding,
+                    ui: ui,
+                    qual: qual,
+                    outreach: outreach,
+                    docs: docs,
+                    overall: overall
+                };
+                
+                var list=[];
+                list[0]={name:"coding", val:coding};
+                list[1]={name:"UI", val:ui};
+                list[2]={name:"Quality Assurance", val:qual};
+                list[3]={name:"Outreach and Research", val:outreach};
+                list[4]={name:"Documentation", val:docs};
+                list[5]={name:"overall", val:overall};
+                
+                list.sort(function(a, b) {
+                    return b.val - a.val;
+                });
+                
+               document.getElementById("results_title").innerHTML = "We think you should take up " + list[0].name + " tasks";
+                
+            }
+            
+            
+            google.charts.load('current', {'packages':['corechart']});
+
+           // google.charts.setOnLoadCallback(drawChart);
+     
+            function drawChart() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('string', 'Skills');
+                data.addColumn('number', 'Skill points');
+                data.addRows([
+                    ['Coding', coding*10],
+                    ['Design', ui*10],
+                    ['Quality Assurance', qual*10],
+                    ['Outreach and Social', outreach*10],
+                    ['Documentation and Maintenance', docs*10],
+                    ['Skillset value', overall*10]
+                ]);
+                var options = {legend: {position: 'none'}, 'chartArea': {'width': '70%', 'height': '80%'}, title:"Skills"};
+                
+                var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+        </script>
+    </body>
+</html>
