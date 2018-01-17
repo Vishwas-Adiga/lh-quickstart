@@ -192,7 +192,7 @@
                         <br><br>
                         <h3 id="ehr_latest_committer">Latest commit by </h3>
                         <br>
-                       <a id="ehr_latest_commit" class="btn-flat waves-effect">VIEW COMMIT</a>
+                        <p id="ehr_commit_title"></p>
                         <br><br>
                         <h3>Languages</h3>
                         <div id="ehr_languages" class="graph"></div>
@@ -239,7 +239,7 @@
                         <br><br>
                         <h3 id="toolkit_latest_committer">Latest commit by </h3>
                         <br>
-                       <a id="toolkit_latest_commit" class="btn-flat waves-effect">VIEW COMMIT</a>
+                        <p id="toolkit_commit_title"></p>
                         <br><br>
                         <h3>Languages</h3>
                         <div id="toolkit_languages" class="graph"></div>
@@ -377,28 +377,28 @@
                 chart.draw(toolkit_data, options);
             }
             
-            var ehr_cont = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/libreehr/contributors"));
+            var ehr_cont = JSON.parse(httpGet("https://gitlab.com/api/v3/projects/2690513/repository/contributors?private_token=yUa1tjQ5PZy5seY3uQ2K"));
             var ehr_total = 0;
             for(var i=0;i<ehr_cont.length;i++) {
-                ehr_total += ehr_cont[i].contributions;
+                ehr_total += ehr_cont[i].commits;
             }
             document.getElementById("ehr_contributions").innerHTML = ehr_total;
             
-            var all_cont_sha = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/libreehr/commits"));
-            document.getElementById("ehr_latest_commit").href = all_cont_sha[0].html_url;
-            document.getElementById("ehr_latest_committer").innerHTML = "Latest commit by " + all_cont_sha[0].commit.author.name;
+            var all_cont_sha = JSON.parse(httpGet("https://gitlab.com/api/v3/projects/2690513/repository/commits?private_token=yUa1tjQ5PZy5seY3uQ2K"));
+            document.getElementById("ehr_latest_committer").innerHTML = "Latest commit by " + all_cont_sha[0].author_name;
+            document.getElementById("ehr_commit_title").innerHTML = all_cont_sha[0].title;
             
-            
-            var toolkit_cont = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/lh-toolkit/contributors"));
+            var toolkit_cont = JSON.parse(httpGet("https://gitlab.com/api/v3/projects/1289338/repository/contributors?private_token=yUa1tjQ5PZy5seY3uQ2K"));
             var toolkit_total = 0;
             for(var i=0;i<toolkit_cont.length;i++) {
-                toolkit_total += toolkit_cont[i].contributions;
+                toolkit_total += toolkit_cont[i].commits;
             }
             document.getElementById("toolkit_contributions").innerHTML = toolkit_total;
             
-            var t_all_cont_sha = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/lh-toolkit/commits"));
-            document.getElementById("toolkit_latest_commit").href = t_all_cont_sha[0].html_url;
-            document.getElementById("toolkit_latest_committer").innerHTML = "Latest commit by " + t_all_cont_sha[0].commit.author.name;
+            
+            var t_all_cont_sha = JSON.parse(httpGet("https://gitlab.com/api/v4/projects/1289338/repository/commits?private_token=yUa1tjQ5PZy5seY3uQ2K"));
+            document.getElementById("toolkit_commit_title").innerHTML = t_all_cont_sha[0].title;
+            document.getElementById("toolkit_latest_committer").innerHTML = "Latest commit by " + t_all_cont_sha[0].author_name;
             
             function httpGet(theUrl) {
                 var xmlHttp = new XMLHttpRequest();
