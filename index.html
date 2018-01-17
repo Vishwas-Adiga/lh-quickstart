@@ -279,6 +279,18 @@
                         
                         <a class="btn-flat waves-effect install_btn" href="https://ivange94blog.wordpress.com/2017/09/26/setting-up-development-environment-for-LibreHealth-radiology/"><i class="material-icons">book</i> &nbsp;VIEW GUIDE</a>
                     </div>
+                    
+                    <div class="cards">
+                        <br><br>
+                        <h3>Contributions</h3>
+                        <br>
+                        <h2 id="radiology_contributions">0</h2>
+                        <br><br>
+                        <h3 id="radiology_latest_committer">Latest commit by </h3>
+                        <br>
+                        <p id="radiology_commit_title"></p>
+                        <br><br>
+                    </div>
                 </div>
                 
                 <div class="col s1"></div>
@@ -377,16 +389,21 @@
                 chart.draw(toolkit_data, options);
             }
             
-            var ehr_cont = JSON.parse(httpGet("https://gitlab.com/api/v3/projects/2690513/repository/contributors?private_token=yUa1tjQ5PZy5seY3uQ2K"));
+            var radiology_cont = JSON.parse(httpGet("https://gitlab.com/api/v3/projects/2690513/repository/contributors?private_token=yUa1tjQ5PZy5seY3uQ2K"));
+            var radiology_total = 0;
+            for(var i=0;i<radiology_cont.length;i++) {
+                radiology_total += radiology_cont[i].commits;
+            }
+            document.getElementById("radiology_contributions").innerHTML = radiology_total;
+            
+            var ehr_cont = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/libreehr/contributors"));
             var ehr_total = 0;
             for(var i=0;i<ehr_cont.length;i++) {
-                ehr_total += ehr_cont[i].commits;
+                ehr_total += ehr_cont[i].contributions;
             }
             document.getElementById("ehr_contributions").innerHTML = ehr_total;
             
-            var all_cont_sha = JSON.parse(httpGet("https://gitlab.com/api/v3/projects/2690513/repository/commits?private_token=yUa1tjQ5PZy5seY3uQ2K"));
-            document.getElementById("ehr_latest_committer").innerHTML = "Latest commit by " + all_cont_sha[0].author_name;
-            document.getElementById("ehr_commit_title").innerHTML = all_cont_sha[0].title;
+            
             
             var toolkit_cont = JSON.parse(httpGet("https://gitlab.com/api/v3/projects/1289338/repository/contributors?private_token=yUa1tjQ5PZy5seY3uQ2K"));
             var toolkit_total = 0;
@@ -396,9 +413,17 @@
             document.getElementById("toolkit_contributions").innerHTML = toolkit_total;
             
             
-            var t_all_cont_sha = JSON.parse(httpGet("https://gitlab.com/api/v4/projects/1289338/repository/commits?private_token=yUa1tjQ5PZy5seY3uQ2K"));
-            document.getElementById("toolkit_commit_title").innerHTML = t_all_cont_sha[0].title;
-            document.getElementById("toolkit_latest_committer").innerHTML = "Latest commit by " + t_all_cont_sha[0].author_name;
+            var r_all_cont_sha = JSON.parse(httpGet("https://gitlab.com/api/v4/projects/2690513/repository/commits?private_token=yUa1tjQ5PZy5seY3uQ2K"));
+            document.getElementById("radiology_commit_title").innerHTML = r_all_cont_sha[0].title;
+            document.getElementById("radiology_latest_committer").innerHTML = "Latest commit by " + r_all_cont_sha[0].author_name;
+            
+            var e_all_cont_sha = JSON.parse(httpGet("https://api.github.com/repos/librehealthio/libreehr/commits"));
+            document.getElementById("ehr_commit_title").innerHTML = e_all_cont_sha[0].author.email;
+            document.getElementById("ehr_latest_committer").innerHTML = "Latest commit by " + e_all_cont_sha[0].commit.author.name;
+            
+            var all_cont_sha = JSON.parse(httpGet("https://gitlab.com/api/v3/projects/1289338/repository/commits?private_token=yUa1tjQ5PZy5seY3uQ2K"));
+            document.getElementById("toolkit_latest_committer").innerHTML = "Latest commit by " + all_cont_sha[0].author_name;
+            document.getElementById("toolkit_commit_title").innerHTML = all_cont_sha[0].title;
             
             function httpGet(theUrl) {
                 var xmlHttp = new XMLHttpRequest();
